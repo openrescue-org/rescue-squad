@@ -159,3 +159,60 @@ Deferred-work catalog. Generated 2026-05-29 by `/plan-ceo-review` in EXPANSION m
 ### TODO-28 — Nepal mobile-network reality addendum to research/02 — P2
 - **What:** Ncell + NTC coverage maps; SMS reliability outside Kathmandu Valley; 4G vs 3G density; load-shedding impact on background services.
 - **Effort:** CC+gstack: 1 day research.
+
+---
+
+## Added by eng-review outside voice (cross-model tensions deferred to TODOs)
+
+### TODO-29 — Human-dispatcher staffing model — P0
+- **What:** Define who staffs the human-dispatcher fallback role in the ack ladder. 24/7 or business hours? KUDH ER nurse cannot also be a real-time dispatch fallback for multi-village incidents.
+- **Why:** Escalation ladder terminates in "a human dispatcher" with no defined operator. Single point of failure both reviews glossed over.
+- **Depends on:** TODO-1f (KUDH ER point-of-contact).
+- **Effort:** Human relationship work (no CC accel). 1-2 wks coordination with KUDH.
+
+### TODO-30 — Nepal data-protection legal review — P0
+- **What:** Privacy Act 2018 (Nepal) + Individual Privacy Act review before user-data architecture is finalized. Covers: server location (data residency), Twilio cross-border SMS transfer consent, AED photo storage, FCHV PII handling, audit log retention.
+- **Why:** CEO + eng reviews locked architectural decisions without checking whether they're legal in Nepal. In pilot, the project IS the data controller.
+- **Effort:** Legal review (no CC accel). Estimate: 2-3 wks with Nepali counsel.
+
+### TODO-31 — Maestro + RN + native Kotlin fg-service E2E pilot scenario — P0
+- **What:** Build one Maestro scenario that drives long-press REQUEST → fg-service start → ACTION_DIAL hand-off → return to app → mark resolved. Confirms Maestro can handle the hardest planned flow before Phase 1 commits the framework.
+- **Why:** Eng review picked Maestro without piloting the scenario; could be a 2-wk sinkhole if Maestro can't drive fg-service + dialer hand-off.
+- **Effort:** CC+gstack: 2-3 days spike.
+
+### TODO-32 — Synthetic-to-live go-live trigger criteria + safety committee — P0
+- **What:** Define what makes the system "ready for live activation." Acceptance criteria, liability transfer mechanism, safety-committee composition (KUDH medical director, KU IRC, project lead), exit ramp if first real activation causes harm.
+- **Why:** MVP exit criteria say "synthetic exercises only until safety review passes" with no defined criteria. Shipping to the edge of the cliff and stopping.
+- **Depends on:** TODO-1a (KUDH MOU), TODO-1b (medical director), TODO-1c (IRC).
+- **Effort:** 1 wk doc work + KUDH alignment.
+
+### TODO-33 — Solo-founder on-call rotation story — P0
+- **What:** Define who gets paged when EMQX/Postgres/Twilio/FCM/dispatcher dies at 3am Kathmandu. Cannot be only the founder — that itself is a safety failure for a life-critical system. Options: bring in a co-maintainer; on-call rotation with KUDH IT team; SLA-degradation tolerance with public banner.
+- **Why:** Both prior reviews assumed an operations team exists. There isn't one.
+- **Effort:** Relationship work + runbook design. 1-2 wks.
+
+### TODO-34 — Android-share survey in Nepal emergency-call originators — P1
+- **What:** Validate that 95% Android share applies to people who actually originate emergency calls (often elderly, often bystanders using nearest phone). Statcounter measures browser-share, not emergency-call-originator-device-share.
+- **Why:** If 30% of emergency calls come from feature phones, the Android-first decision shrinks the addressable seeker population — and SMS-originated REQUEST becomes a primary path, not a fallback.
+- **Effort:** Survey with KUDH ER intake data + Nepal Telecom data. 1-2 wks.
+
+### TODO-35 — FCHV smartphone + data-plan + charging penetration survey — P1
+- **What:** Source current data on FCHV smartphone ownership, data-plan affordability, charging-during-load-shedding reality. If FCHVs are mainly SMS-reachable, the Kotlin foreground-service architecture is wasted on the FCHV tier.
+- **Why:** Decision #6 built a tier on FCHVs without confirming the phone-distribution assumption.
+- **Effort:** Survey with KUDH Community Programs Department. 1-2 wks.
+
+### TODO-36 — MQTT-over-WSS through Ncell + NTC carrier-grade NAT test — P1
+- **What:** Test that MQTT-over-WSS sustains a long-lived connection through both Nepali carriers' CGNAT. Some LMIC carriers idle-kill TLS at 60-180s; if true, push becomes the data path, not just wake-up, breaking §2.2 architecture.
+- **Why:** Architecture assumption never validated against actual Nepal carrier middleboxes.
+- **Effort:** 2-3 day spike with two Nepal SIMs.
+
+### TODO-37 — ICD-11 CC BY-ND clause analysis vs dispatch-time filtering — P1
+- **What:** Legal analysis of whether code that filters incidents by ICD-11 codes at dispatch time creates a derivative work or runs afoul of "no derivatives" clause. Worst case: cannot customize the ICD-11 tier matrix at dispatch time, which kills TODO-3.
+- **Why:** CEO review noted CC BY-ND but did not analyze the dispatch-time filtering case.
+- **Effort:** Legal opinion + WHO communications. 1-2 wks.
+
+### TODO-38 — Protocol formalization v1 scope — P0 (consequence of cross-model tension #3)
+- **What:** Separate `rescue-squad-protocol` repo (Apache 2.0) containing: OpenAPI spec + OpenRPC MQTT topic spec + semver policy for protocol version (separate from impl version) + governance doc (decision-making model + extension policy) + conformance test harness (any implementation can be validated against this).
+- **Why:** User chose B on cross-model tension #3 — formalize protocol in v1, not v2. Apache 2.0 + GitHub repo is not a protocol; this TODO makes the protocol framing real.
+- **Effort:** CC+gstack: 1-2 wks. Real artifact: conformance test harness in Go (k6 + curl-based) that runs against any spec-conformant impl.
+- **Depends on:** Phase 1 (foundation) for the OpenAPI/OpenRPC definitions.
