@@ -6,14 +6,17 @@ Deferred-work catalog. Generated 2026-05-29 by `/plan-ceo-review` in EXPANSION m
 
 ## Open scope decisions (must resolve before MVP)
 
-### TODO-1 — Pilot partner organization in Nepal — P1
-- **What:** Identify and sign MOU with one Nepali pilot organization.
+### TODO-1 — Pilot partner organization in Nepal — **PARTNER LOCKED: Kathmandu University Dhulikhel Hospital (KUDH)**
+- **What:** Operationalize KUDH (https://dhulikhelhospital.org/) as pilot partner.
 - **Why:** No real users = no real validation; MVP exit criteria require pilot medical-director sign-off.
-- **Candidates:** Nepal Red Cross Society Ambulance, Patan Hospital ER, Possible Health, Nepal Ambulance Service, Bir Hospital, Tilganga Institute of Ophthalmology (only as a counter-example), Dhulikhel Hospital.
-- **Pros:** Unlocks real-world testing; defensible deployment story for grant applications.
-- **Cons:** Relationship work, not eng work. Calendar time, not compute time.
-- **Effort:** Human relationship work (no CC+gstack acceleration). Expect 2–6 wks.
-- **Depends on:** Nothing technical. Blocks: MVP Phase 9 (pilot).
+- **Why KUDH fits exceptionally well:** academic medical center (research/publication path via KU School of Medical Sciences); outreach-center network in surrounding rural Kavrepalanchok (multi-site pilot from day 1); Department of Community Programs already trains FCHVs across multiple districts (FCHV-tier ready supply); KU Institutional Review Committee available for ethics approval; Araniko Highway road-trauma chief complaints; heavily affected by 2015 earthquake (real-world disaster-resilience relevance for v2 mesh-fallback).
+- **Sub-tasks unblocked (now P1):**
+  - **TODO-1a:** Sign MOU between project and KUDH.
+  - **TODO-1b:** Identify KUDH medical director(s) for ICD-11 alert-tier protocol sign-off (unblocks TODO-3).
+  - **TODO-1c:** Submit IRC (Institutional Review Committee) protocol to KU. Required for research-grade outcomes publication.
+  - **TODO-1d:** Select pilot footprint: which 1–2 KUDH outreach centers + their FCHV catchment villages? Affects region_config region scoping and SMS/4G coverage assumptions. **OPEN — needs KUDH input.**
+  - **TODO-1e:** Recruit pilot FCHV cohort (N=5–10) in chosen footprint.
+  - **TODO-1f:** Identify KUDH ER point-of-contact for human-dispatcher fallback role.
 
 ### TODO-2 — Native dial-out behavior — P1
 - **What:** Decide between `Intent.ACTION_DIAL` (user must tap call) and `Intent.ACTION_CALL` (auto-dial, requires CALL_PHONE perm + Play Store medical-app review).
@@ -23,13 +26,13 @@ Deferred-work catalog. Generated 2026-05-29 by `/plan-ceo-review` in EXPANSION m
 - **Effort:** Human team: 2 days investigation + decision; CC+gstack: 4 hours.
 - **Depends on:** Plan-eng-review.
 
-### TODO-3 — Define alert tier matrix per ICD-11 chief complaint — P1
+### TODO-3 — Define alert tier matrix per ICD-11 chief complaint — P1 (UNBLOCKED via TODO-1b)
 - **What:** Map every ICD-11 emergency chapter code (JA00–JA86 + others) to one of: `FCHV_ELIGIBLE`, `RED_CROSS_ELIGIBLE`, `WHO_BEC_ELIGIBLE`, `NMC_ONLY`, `ALS_ONLY`.
 - **Why:** FCHV tier needs explicit alert filtering or you re-create the KATRETTER false-positive war story (research/03).
-- **Pros:** Defensible dispatch logic; pilot agency medical director can review and own.
+- **Pros:** Defensible dispatch logic; KUDH medical director can review and own.
 - **Cons:** Requires clinical input (medical director needed before this can finalize).
 - **Effort:** Human team: 1 wk clinical review + 1 day engineering; CC+gstack: 1 day eng once matrix is written.
-- **Depends on:** TODO-1 (pilot partner medical director).
+- **Depends on:** TODO-1b (KUDH medical director identified).
 
 ---
 

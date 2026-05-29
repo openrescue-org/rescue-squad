@@ -22,7 +22,9 @@ See `README.md` for the full concept and `.claude/plans/01_initial-plan.md` for 
 - **Responder tiers:** NMC-licensed pros + Female Community Health Volunteers (FCHV) + Red Cross first-aiders + WHO BEC-trained.
 - **In v1:** WHO ICD-11 chief-complaint coding, offline + SMS-fallback architecture, crowd-sourced AED registry.
 
-Open scope blockers before MVP exit: pilot partner organization (TODO-1), native dial-out behavior (TODO-2), ICD-11 → tier matrix (TODO-3, requires pilot medical director). See `TODOS.md`.
+**Pilot partner (locked):** Kathmandu University Dhulikhel Hospital (KUDH) — https://dhulikhelhospital.org/. Kavrepalanchok district. Multi-site outreach-center network + FCHV training pipeline + KU IRC research pathway.
+
+Open scope blockers before MVP exit: native dial-out behavior (TODO-2), KUDH outreach-center footprint selection (TODO-1d), KUDH IRC approval (TODO-1c). See `TODOS.md`.
 
 **Do not scaffold app code yet.** Plan-eng-review must complete first.
 
