@@ -12,14 +12,19 @@ See `README.md` for the full concept and `.claude/plans/01_initial-plan.md` for 
 
 ## Status
 
-**Pre-implementation.** Research + planning only. Do **not** scaffold app code, infrastructure, or stores until the user has resolved the scope decisions in `.claude/plans/01_initial-plan.md`. In particular, the choice between:
+**Pre-implementation.** Research + planning only. Direction locked by `/plan-ceo-review` (see `.claude/plans/02_ceo-review-decisions.md`):
 
-1. Community-responder augment (PulsePoint/GoodSAM-style; legally tractable)
-2. Closed pilot inside one licensed EMS agency (private dispatch tool)
-3. Full 911 replacement (do not pursue without explicit, written user direction)
-4. Non-US first launch (e.g. Nepal / India, where 102 was mentioned)
+- **Approach:** Open-source community-responder protocol (Apache 2.0 licensed reference implementation).
+- **Geography:** Nepal first, with pan-South-Asia protocol framing (NP, IN, BD, LK, BT, PK seeded in region_config).
+- **Language:** Nepali day 1; English fast-follow; Hindi shortly after.
+- **Platform:** Android-first (React Native + native Kotlin bridge for foreground service + background location). iOS is post-MVP.
+- **Stack:** Go backend, EMQX MQTT broker (self-host), PostgreSQL + PostGIS, Twilio SMS default + Ncell adapter example.
+- **Responder tiers:** NMC-licensed pros + Female Community Health Volunteers (FCHV) + Red Cross first-aiders + WHO BEC-trained.
+- **In v1:** WHO ICD-11 chief-complaint coding, offline + SMS-fallback architecture, crowd-sourced AED registry.
 
-determines almost every downstream technical and regulatory choice.
+Open scope blockers before MVP exit: pilot partner organization (TODO-1), native dial-out behavior (TODO-2), ICD-11 → tier matrix (TODO-3, requires pilot medical director). See `TODOS.md`.
+
+**Do not scaffold app code yet.** Plan-eng-review must complete first.
 
 ## Hard constraints
 
