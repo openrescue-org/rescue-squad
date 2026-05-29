@@ -250,3 +250,66 @@ Deferred-work catalog. Generated 2026-05-29 by `/plan-ceo-review` in EXPANSION m
 - **Why:** Real icon needs to come from brand identity (TODO-42).
 - **Depends on:** TODO-42 (brand name + identity).
 - **Effort:** 2-3 days design + iteration.
+
+---
+
+## Added by devex-review (DX EXPANSION mode, pan-South-Asia persona, Champion TTHW tier)
+
+### TODO-44 — Launch announcement + OSS catalog submissions — P2
+- **What:** When v1 is publishable, submit to OpenHIE catalog, DHIS2 community wiki, GitHub awesome-lists (awesome-selfhosted, awesome-health-it), relevant Reddit + HN, South Asia OSS health channels.
+- **Why:** Discoverability is currently zero. Hospital IT engineers in BD/LK/BT have no path to find this project.
+- **Effort:** CC+gstack: 1 day of writing + submitting.
+- **Depends on:** v1 release.
+
+### TODO-45 — README rewrite for evaluator persona — P0 (v1 blocker)
+- **What:** Rewrite README so a Pan-South-Asia hospital IT engineer can decide in 30 seconds whether to try it. Structure: 1-line "what it is" → 1-line "how it works" → screenshot or video of synthetic incident → "Try it now → demo.rescue-squad.example" → `make demo` 3-line quickstart → links to docs/roadmap/contributing.
+- **Why:** Current README is concept-level + says "Status: Research + planning phase. No code yet." Closes the door for evaluators.
+- **Effort:** CC+gstack: 4 hr.
+
+### TODO-46 — Full operator docs in Diátaxis framework — P0 (v1 blocker)
+- **What:** `docs/` with tutorials/ (4 walkthroughs), how-tos/ (7 task-focused), reference/ (OpenAPI + OpenRPC + CLI + config + errors), explanation/ (5 architectural deep-dives). Diátaxis discipline: no mixing.
+- **Why:** No operator docs exist. Research/ docs are great background but not deployment-actionable.
+- **Effort:** CC+gstack: 1-2 wks.
+
+### TODO-47 — `docs/errors/<code>.md` per error class — P0 (v1 blocker)
+- **What:** One markdown page per error code from eng-review §2 (9 classes). Each: problem statement + cause + fix steps + related concepts + example error response.
+- **Why:** Every API error response includes `doc_url`; those URLs must resolve to useful pages.
+- **Effort:** CC+gstack: 1 day (9 pages).
+- **Depends on:** TODO-46 (docs site exists).
+
+### TODO-48 — Per-release upgrade guide template — P0 (v1 blocker)
+- **What:** `docs/upgrade/v{N}.md` per minor release: breaking changes list, migration steps, codemod scripts (if any), tested rollback procedure.
+- **Why:** Hospital operators won't upgrade without confidence. Sets the pattern from v0.1.
+- **Effort:** CC+gstack: 0.5 day template + per-release ongoing.
+
+### TODO-49 — `make demo` orchestration — P0 (v1 blocker, magical-moment vehicle)
+- **What:** Docker Compose with Postgres+PostGIS, Mosquitto, dispatcher binary, seed data (5 responders, 3 AEDs, region NP active), pre-populated synthetic incident, prereq-checker, browser auto-open to http://localhost:8080/demo.
+- **Why:** Locked decision 0D. Without this, the magical moment doesn't exist.
+- **Effort:** CC+gstack: 1 wk.
+
+### TODO-50 — Hosted sandbox deploy + ephemeral session lifecycle — P1 (v1 blocker, Champion TTHW)
+- **What:** Deploy demo.rescue-squad.example (URL TBD) on Fly.io or Render free-tier-equivalent. Ephemeral sessions (reset every 60 min). Read-write but synthetic data only. Rate-limited. Banner "DEMO DATA" everywhere.
+- **Why:** Locked decision 0C — Champion <2 min TTHW requires hosted try-before-install.
+- **Effort:** CC+gstack: 2 wks (deploy + abuse rate-limiting + monitoring + cost <$50/mo at low scale).
+
+### TODO-51 — Country-pack PR workflow + examples/ scaffolds — P1
+- **What:** `examples/country-packs/` with NP active config + scaffolded IN/BD/LK/BT/PK templates. CONTRIBUTING.md section "Add a country pack" with example PR walkthrough. Region-config validation script.
+- **Why:** Pan-South-Asia persona expects to add their country in a weekend (per 0G roleplay). Make this easy and the contribution flow becomes a marketing asset.
+- **Effort:** CC+gstack: 3-4 days.
+
+### TODO-52 — .devcontainer/ + Codespaces config + dev-env docs — P1
+- **What:** `.devcontainer/devcontainer.json` for VSCode/Codespaces. One-click full dev environment via GitHub Codespaces (free for OSS). `docs/how-tos/local-dev.md`.
+- **Why:** Contributor onboarding (CS student at KU or anywhere) becomes one-click. Compresses contributor TTHW for first PR.
+- **Effort:** CC+gstack: 1-2 days.
+
+### TODO-53 — TTHW instrumentation in `make demo` — P2
+- **What:** `make demo` writes `.metrics/tthw.json` with start time + first-synthetic-incident-visible time. Optional anonymized upload to telemetry endpoint (opt-in only, off by default).
+- **Why:** Boomerang readiness — locked TTHW target needs measurable baseline.
+- **Effort:** CC+gstack: 4 hr.
+- **Depends on:** TODO-49.
+
+### TODO-54 — Plausible Analytics + feedback button on sandbox + docs — P2
+- **What:** Plausible Analytics (privacy-respecting; GDPR + Nepal Privacy Act compatible) on hosted sandbox + docs site. Feedback button on every page → pre-filled GitHub Issue.
+- **Why:** DX measurement loop. Friction audit cadence requires data.
+- **Effort:** CC+gstack: 1 day.
+- **Depends on:** TODO-50 (sandbox) + TODO-46 (docs site).
