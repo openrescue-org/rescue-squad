@@ -216,3 +216,37 @@ Deferred-work catalog. Generated 2026-05-29 by `/plan-ceo-review` in EXPANSION m
 - **Why:** User chose B on cross-model tension #3 — formalize protocol in v1, not v2. Apache 2.0 + GitHub repo is not a protocol; this TODO makes the protocol framing real.
 - **Effort:** CC+gstack: 1-2 wks. Real artifact: conformance test harness in Go (k6 + curl-based) that runs against any spec-conformant impl.
 - **Depends on:** Phase 1 (foundation) for the OpenAPI/OpenRPC definitions.
+
+---
+
+## Added by design-review
+
+### TODO-39 — Nepali microcopy native-speaker review pipeline — P1
+- **What:** Every Nepali string passes through ≥2 native-speaker reviewers before shipping. Set up the workflow: extract strings from i18n bundle → Crowdin or Lokalise project → reviewer assignment → PR-gate that requires reviewer sign-off on new strings.
+- **Why:** AI-translated Nepali sounds artificial and often misuses respectful pronouns (तपाईं vs तिमी). In an emergency context this destroys trust. Banner text in particular ("This is not 102 — call 102 directly") must read naturally to a panicked seeker.
+- **Effort:** CC+gstack: 1 day pipeline setup. Ongoing: per-PR native-speaker review.
+- **Depends on:** Identifying 2+ Nepali-speaking reviewers (potentially KUDH staff).
+
+### TODO-40 — Full `/design-consultation` pass — P2
+- **What:** Run `/design-consultation` to produce the full DESIGN.md: brand identity exploration, illustration style, motion principles, voice tone in Nepali + English + Hindi, complete component library.
+- **Why:** Starter DESIGN.md (v0.1) covers minimums; full pass closes the brand + voice + illustration gaps. Best done after pilot brand name lands.
+- **Depends on:** TODO-42 (brand name).
+- **Effort:** CC+gstack: 1 wk.
+
+### TODO-41 — Visual mockup generation for ≥3 screens — P2
+- **What:** Once OpenAI API key is set up + brand direction firms up, run `/design-shotgun` to generate visual mockups for seeker REQUEST, provider alert-incoming, admin credential-verify. 3 variants each + comparison board + iterate.
+- **Why:** Wireframes locked in design review; visual mockups give the implementer a concrete reference to build to. Defer until post-brand to avoid generic AI-generated visual identity.
+- **Effort:** CC+gstack: 1-2 hr + ~$0.50-2 OpenAI cost.
+- **Depends on:** OpenAI API key + TODO-42 (brand name).
+
+### TODO-42 — Real brand name (post-pilot) — P2
+- **What:** Pick the actual product name. Until then, all artifacts use "Rescue-Squad" repo-name placeholder. Candidates surfaced in design review: Sahayata (सहायता / 'help'), SaathiCare (saathi = friend/companion), or Nepali/Hindi-resonant alternative.
+- **Why:** User chose to defer per design review. Real brand emerges from pilot feedback (what KUDH staff + FCHV + seekers actually call it).
+- **Effort:** Naming work + trademark check + domain availability (1-2 wks).
+- **Depends on:** Pilot launch + first feedback cycle.
+
+### TODO-43 — App icon — P2
+- **What:** Final app icon for Play Store. Placeholder is Material Symbols `emergency` glyph on primary red surface.
+- **Why:** Real icon needs to come from brand identity (TODO-42).
+- **Depends on:** TODO-42 (brand name + identity).
+- **Effort:** 2-3 days design + iteration.
