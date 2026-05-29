@@ -18,7 +18,7 @@ See `README.md` for the full concept and `.claude/plans/01_initial-plan.md` for 
 - **Geography:** Nepal first, with pan-South-Asia protocol framing (NP, IN, BD, LK, BT, PK seeded in region_config).
 - **Language:** Nepali day 1; English fast-follow; Hindi shortly after.
 - **Platform:** Android-first (React Native + native Kotlin bridge for foreground service + background location). iOS is post-MVP.
-- **Stack:** Go backend, EMQX MQTT broker (self-host), PostgreSQL + PostGIS, Twilio SMS default + Ncell adapter example.
+- **Stack:** Go backend (Chi router + net/http stdlib), Mosquitto MQTT broker default (EMQX as Helm-chart upgrade option for >1000 active providers), PostgreSQL + PostGIS with Atlas declarative migrations, MapLibre + OpenStreetMap (Google Maps SDK as second reference adapter via pluggable `MapProvider` interface), Twilio SMS default + Ncell adapter example. Mobile: React Native + native Kotlin module for foreground-service + background location.
 - **Responder tiers:** NMC-licensed pros + Female Community Health Volunteers (FCHV) + Red Cross first-aiders + WHO BEC-trained.
 - **In v1:** WHO ICD-11 chief-complaint coding, offline + SMS-fallback architecture, crowd-sourced AED registry.
 
@@ -28,7 +28,7 @@ See `README.md` for the full concept and `.claude/plans/01_initial-plan.md` for 
 
 Open scope blockers before MVP exit: KUDH outreach-center footprint (TODO-1d, needs KUDH input), KUDH IRC approval (TODO-1c, KUDH process), ICD-11 alert-tier matrix (TODO-3, unblocked once TODO-1b assigns KUDH medical director). See `TODOS.md`.
 
-**Do not scaffold app code yet.** Plan-eng-review must complete first.
+**All four plan reviews complete (CEO + Eng + Design + DX).** GSTACK dashboard CLEAR. Implementation gate remains the three real-world dependency chains: **TODO-1a (KUDH MOU)**, **TODO-30 (Nepal data-protection legal review)**, **TODO-33 (solo-founder on-call rotation story)**. Do not scaffold app code until at minimum TODO-1a and TODO-30 land. See `TODOS.md` (54 items) and `.claude/plans/01-05_*.md`.
 
 ## Hard constraints
 

@@ -4,7 +4,9 @@ A two-sided mobile app that connects people in medical emergencies with nearby o
 
 ## Status
 
-**Research + planning phase.** No code yet. See `research/` for primary-source background and `.claude/plans/` for the current implementation plan and open scope decisions.
+**Plan-complete, implementation-pending.** All four plan reviews clean (CEO + Eng + Design + DX). Direction locked: **open-source community-responder protocol (Apache 2.0), Nepal-first with pan-South-Asia framing, KUDH (Kathmandu University Dhulikhel Hospital) as pilot partner, Android-first via React Native + native Kotlin module, Go backend with Mosquitto + PostgreSQL/PostGIS + MapLibre+OSM.** Real-world implementation blockers (not engineering): KUDH MOU, Nepal data-protection legal review, solo-founder on-call rotation story.
+
+See `research/` (91 primary sources), `DESIGN.md` (design system tokens), `TODOS.md` (54-item catalog), and `.claude/plans/` (gitignored review artifacts) for full context.
 
 ## Concept
 
@@ -19,8 +21,8 @@ When a help request is filed:
 
 ## What this project is **not** (yet)
 
-- **Not a 911 replacement.** Building a system that supplants the Public Safety Answering Point (PSAP) is a multi-year, multi-jurisdictional regulatory project. The default scope is a **community-responder augment** (in the spirit of PulsePoint / GoodSAM), not a replacement.
-- **Not a deployed product.** This is a research + planning artifact. Implementation begins only after the user has resolved the scope decisions surfaced in `.claude/plans/01_initial-plan.md`.
+- **Not a 102/911 replacement.** The app dials the country's emergency number (102 in Nepal) via the native dialer; it's a parallel community-alerting layer, not a Public Safety Answering Point (PSAP) substitute. Matches PulsePoint/GoodSAM precedent.
+- **Not yet deployed.** Plan-complete; implementation gated on the three real-world dependencies above. First commit of application code will live in `github.com/openrescue/rescue-squad` (org pending creation).
 
 ## Layout
 
@@ -34,9 +36,11 @@ Rescue-Squad/
 │   ├── 02_realtime-location-and-dispatch-architecture.md
 │   ├── 03_existing-apps-and-dispatch-algorithms.md
 │   └── index.html         ← Auto-generated viewer
+├── DESIGN.md              ← Design system tokens (color, type, spacing, motion, a11y)
+├── TODOS.md               ← 54-item deferred-work catalog
+├── CHANGELOG.md           ← Session-by-session change log
 └── .claude/
-    └── plans/             ← Gitignored. Implementation plans.
-        └── 01_initial-plan.md
+    └── plans/             ← Gitignored. Plan + review artifacts (01-05).
 ```
 
 ## Git remote
