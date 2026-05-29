@@ -18,13 +18,14 @@ Deferred-work catalog. Generated 2026-05-29 by `/plan-ceo-review` in EXPANSION m
   - **TODO-1e:** Recruit pilot FCHV cohort (N=5–10) in chosen footprint.
   - **TODO-1f:** Identify KUDH ER point-of-contact for human-dispatcher fallback role.
 
-### TODO-2 — Native dial-out behavior — P1
-- **What:** Decide between `Intent.ACTION_DIAL` (user must tap call) and `Intent.ACTION_CALL` (auto-dial, requires CALL_PHONE perm + Play Store medical-app review).
-- **Why:** Section 4 finding from CEO review. Cardiac arrest scenario where seeker may collapse after pressing REQUEST exposes ACTION_DIAL's failure mode.
-- **Pros (ACTION_CALL):** Survives the collapse scenario.
-- **Cons (ACTION_CALL):** Play Store review friction; emergency apps face scrutiny.
-- **Effort:** Human team: 2 days investigation + decision; CC+gstack: 4 hours.
-- **Depends on:** Plan-eng-review.
+### TODO-2 — Native dial-out behavior — **LOCKED: ACTION_DIAL only + long-press REQUEST confirm**
+- **What:** Use `Intent.ACTION_DIAL` to open the dialer pre-filled with the region's emergency number (102 in Nepal). User taps the green call button to start the call. REQUEST itself is a 2s long-press to prevent accidental presses.
+- **Rationale:** Matches PulsePoint and GoodSAM. No `CALL_PHONE` permission needed → no Play Store medical-app review friction → no per-hospital deployment paperwork when downstream operators ship the OSS code. Multigenerational Nepali household structure means bystanders are usually present; the unconscious-user collapse-after-REQUEST scenario is covered by the FCHV alert fan-out (someone responds even if the patient can't tap call), not by app auto-dialing.
+- **Implementation notes:**
+  - After dialer opens, show full-screen banner: "**TAP THE GREEN CALL BUTTON** / **हरियो कल बटन थिच्नुहोस्**".
+  - On `ActivityNotFoundException` (no dialer installed — very rare): in-app fallback message asking the user to call the region emergency number manually.
+  - Long-press threshold: 2 seconds with haptic feedback at 1s; cancellable by lifting finger before 2s.
+  - The REQUEST flow still publishes MQTT + SMS-fallback in parallel (so responder fan-out doesn't depend on the user actually completing the dial).
 
 ### TODO-3 — Define alert tier matrix per ICD-11 chief complaint — P1 (UNBLOCKED via TODO-1b)
 - **What:** Map every ICD-11 emergency chapter code (JA00–JA86 + others) to one of: `FCHV_ELIGIBLE`, `RED_CROSS_ELIGIBLE`, `WHO_BEC_ELIGIBLE`, `NMC_ONLY`, `ALS_ONLY`.

@@ -24,7 +24,9 @@ See `README.md` for the full concept and `.claude/plans/01_initial-plan.md` for 
 
 **Pilot partner (locked):** Kathmandu University Dhulikhel Hospital (KUDH) — https://dhulikhelhospital.org/. Kavrepalanchok district. Multi-site outreach-center network + FCHV training pipeline + KU IRC research pathway.
 
-Open scope blockers before MVP exit: native dial-out behavior (TODO-2), KUDH outreach-center footprint selection (TODO-1d), KUDH IRC approval (TODO-1c). See `TODOS.md`.
+**Native dial-out (locked):** `Intent.ACTION_DIAL` (not ACTION_CALL) + 2s long-press REQUEST gesture. No CALL_PHONE permission. Banner instructs the user to tap the green call button in Nepali + English. Matches PulsePoint/GoodSAM. Unconscious-user case handled by FCHV alert fan-out, not by auto-dialing.
+
+Open scope blockers before MVP exit: KUDH outreach-center footprint (TODO-1d, needs KUDH input), KUDH IRC approval (TODO-1c, KUDH process), ICD-11 alert-tier matrix (TODO-3, unblocked once TODO-1b assigns KUDH medical director). See `TODOS.md`.
 
 **Do not scaffold app code yet.** Plan-eng-review must complete first.
 
