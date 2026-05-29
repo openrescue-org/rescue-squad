@@ -22,7 +22,7 @@ When a help request is filed:
 ## What this project is **not** (yet)
 
 - **Not a 102/911 replacement.** The app dials the country's emergency number (102 in Nepal) via the native dialer; it's a parallel community-alerting layer, not a Public Safety Answering Point (PSAP) substitute. Matches PulsePoint/GoodSAM precedent.
-- **Not yet deployed.** Plan-complete; implementation gated on the three real-world dependencies above. First commit of application code will live in `github.com/openrescue/rescue-squad` (org pending creation).
+- **Not yet deployed.** Plan-complete; implementation gated on the three real-world dependencies above. Application code will live in [github.com/openrescue-org/rescue-squad](https://github.com/openrescue-org/rescue-squad).
 
 ## Layout
 
