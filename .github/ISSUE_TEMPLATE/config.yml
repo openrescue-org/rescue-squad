@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Questions, ideas, general discussion
+    url: https://github.com/openrescue-org/rescue-squad/discussions
+    about: Use Discussions for "how do I…?", "is this the right approach for…?", show-and-tell, and roadmap conversations. Issues are for actionable bugs, features, and country-pack requests only.
+  - name: Security vulnerability
+    url: https://github.com/openrescue-org/rescue-squad/security/advisories/new
+    about: Found a security issue? Report privately via GitHub Security Advisories. Do NOT file a public issue. See SECURITY.md.

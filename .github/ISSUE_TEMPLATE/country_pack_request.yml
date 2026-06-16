@@ -1,0 +1,91 @@
+name: Country pack request
+description: Add or update a region pack (emergency number, language, regulator, etc.) for a country
+title: "[country] "
+labels: ["country-pack", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping with pan-South-Asia coverage. A country pack is a configuration bundle that lets Rescue-Squad operate in your jurisdiction. The plan seeds Nepal active and scaffolds India, Bangladesh, Sri Lanka, Bhutan, Pakistan. Other countries welcome.
+
+  - type: input
+    id: country
+    attributes:
+      label: Country (ISO 3166-1 alpha-2)
+      placeholder: "e.g. LK"
+    validations:
+      required: true
+
+  - type: input
+    id: emergency-number
+    attributes:
+      label: Primary emergency / ambulance number
+      placeholder: "e.g. 1990 (Suwa Seriya), 102, 108, 112, 999, 911"
+    validations:
+      required: true
+
+  - type: textarea
+    id: other-numbers
+    attributes:
+      label: Other relevant emergency numbers
+      description: Police, fire, women's helpline, etc.
+
+  - type: textarea
+    id: language
+    attributes:
+      label: Languages
+      description: Primary + commonly-spoken languages with ISO codes. Note script (Devanagari, Sinhala, Tamil, etc.)
+      placeholder: "e.g. si (Sinhala), ta (Tamil), en (English)"
+    validations:
+      required: true
+
+  - type: input
+    id: regulator
+    attributes:
+      label: National telecom / health regulator
+      placeholder: "e.g. TRCSL (Telecommunications Regulatory Commission of Sri Lanka), Ministry of Health"
+
+  - type: textarea
+    id: data-protection
+    attributes:
+      label: Data protection regime
+      description: Privacy laws relevant to PHI / health data / GPS
+      placeholder: "e.g. Personal Data Protection Act No. 9 of 2022"
+
+  - type: textarea
+    id: good-samaritan
+    attributes:
+      label: Good Samaritan / responder liability framework
+      description: Legal framework for civil liability of off-duty / volunteer responders
+
+  - type: input
+    id: aed-density
+    attributes:
+      label: AED density (rough estimate)
+      placeholder: "e.g. very low (<10 known nationally), low (urban hospitals only), moderate, high"
+
+  - type: input
+    id: icd-status
+    attributes:
+      label: ICD-11 adoption status
+      description: Hospitals on ICD-11, ICD-10, or both?
+      placeholder: "e.g. ICD-10 in pilot, ICD-11 transition planned 2026"
+
+  - type: dropdown
+    id: relationship
+    attributes:
+      label: Your relationship to this country
+      options:
+        - I live there and work in / with healthcare
+        - I live there
+        - I worked there
+        - I'm researching it
+        - Other (explain below)
+    validations:
+      required: true
+
+  - type: textarea
+    id: contact
+    attributes:
+      label: Local partner contact (optional)
+      description: Hospital, EMS agency, MoH contact who would be the on-ground partner. We will not contact them without your introduction.

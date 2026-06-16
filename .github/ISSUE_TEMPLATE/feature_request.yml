@@ -1,0 +1,52 @@
+name: Feature request
+description: Suggest a new capability or improvement
+title: "[feat] "
+labels: ["enhancement", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Read TODOS.md first — there are 54 catalogued items. If your idea overlaps with an existing TODO, comment there instead.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What user (seeker, provider, hospital IT engineer, OSS contributor) hits what friction?
+      placeholder: "As a [persona], I [situation], and currently I have to [workaround], which is bad because [consequence]."
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: What would you build? Be specific about API surface, UI, or behavior.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: What else did you think about? Why is the proposal better?
+
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Scope
+      options:
+        - v1 (in current plan)
+        - v2 (post-MVP)
+        - Country pack (per-region, not core)
+        - Documentation only
+        - Not sure
+    validations:
+      required: true
+
+  - type: textarea
+    id: ohca-relevance
+    attributes:
+      label: OHCA evidence base
+      description: Out-of-hospital cardiac arrest is the only chief-complaint with strong peer-reviewed evidence for community-responder dispatch. Does this feature serve OHCA specifically, all medical emergencies, or something else? If non-OHCA, what evidence supports the design?
+      placeholder: "Optional but appreciated. See research/03_existing-apps-and-dispatch-algorithms.md for the evidence base."
