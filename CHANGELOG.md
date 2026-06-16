@@ -2,6 +2,11 @@
 
 All notable changes to Rescue-Squad. Format: most recent at top.
 
+## 2026-06-16 — Community-health files + origin remote repair
+
+- **Community-health files (`1b27478`):** added `CONTRIBUTING.md` and `.github/` (PR template + bug/feature/country-pack issue forms + config) for OSS contributor onboarding. Pushed to both `origin` (local bare) and `github` (`openrescue-org/rescue-squad`).
+- **Fixed stale `origin` remote URL:** `origin` pointed at the old `/Users/rupeshsilwal/Claude-safe/git-repos/...` path (workspace has since moved to `Work_Claude_Safe/Exploratory/`), which broke the push. Repointed to `/Users/rupeshsilwal/Work_Claude_Safe/Exploratory/git-repos/rescue-squad.git`.
+
 ## 2026-05-29 — Project scaffold + all four plan reviews clean
 
 Scaffolded the project and ran the full gstack plan-review pipeline (CEO, Eng, Design, DX) to lock direction before any application code is written.
