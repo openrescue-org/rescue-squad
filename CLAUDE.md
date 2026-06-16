@@ -57,9 +57,14 @@ All research lives in `research/` and follows workspace CLAUDE.md §8:
 
 Plans live at `Rescue-Squad/.claude/plans/` (gitignored, per workspace CLAUDE.md §10). Never write plan artifacts to the workspace-root `.claude/plans/`.
 
-## Git remote
+## Git remotes
 
-`git-repos/rescue-squad.git`. Standard workflow per workspace CLAUDE.md §5 (test before commit; commit per unit of work; push after each commit; never force-push).
+- **`origin`** — `/Users/rupeshsilwal/Work_Claude_Safe/git-repos/rescue-squad.git` (local bare remote).
+- **`github`** — `https://github.com/openrescue-org/rescue-squad.git` (public, live).
+
+Standard workflow per workspace CLAUDE.md §5 (test before commit; commit per unit of work; push to **both** remotes after each commit; never force-push).
+
+The `origin` bare remote was repaired on 2026-06-16: repointed from the dead legacy path `/Users/rupeshsilwal/Claude-safe/git-repos/rescue-squad.git` (gone after the workspace relocation) to the canonical `/Users/rupeshsilwal/Work_Claude_Safe/git-repos/`. All three — local, `origin`, and `github` — are in sync.
 
 ## Commands
 

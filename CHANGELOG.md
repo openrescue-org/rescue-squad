@@ -2,6 +2,11 @@
 
 All notable changes to Rescue-Squad. Format: most recent at top.
 
+## 2026-06-16 — Origin repointed to shared git-repos; remote docs synced
+
+- **`origin` set to the canonical shared bare-repo location:** `/Users/rupeshsilwal/Work_Claude_Safe/git-repos/rescue-squad.git` — the workspace-group `git-repos/` that holds every subproject's bare remote (aws, games, lean-proofs, taxes-2025, …). This supersedes the `Work_Claude_Safe/Exploratory/git-repos/...` path noted in the prior entry; the bares are shared at the `Work_Claude_Safe/` root, not per-workspace. Local, `origin`, and `github` are all in sync.
+- **Docs synced (`README.md`, `CLAUDE.md`):** "Git remote" → "Git remotes"; both now document `origin` (local bare) + `github` (public) and a push-to-both workflow.
+
 ## 2026-06-16 — Community-health files + origin remote repair
 
 - **Community-health files (`1b27478`):** added `CONTRIBUTING.md` and `.github/` (PR template + bug/feature/country-pack issue forms + config) for OSS contributor onboarding. Pushed to both `origin` (local bare) and `github` (`openrescue-org/rescue-squad`).
