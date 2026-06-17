@@ -45,7 +45,7 @@ Rescue-Squad/
 
 ## Git remotes
 
-- **`origin`** — `/Users/rupeshsilwal/Work_Claude_Safe/git-repos/rescue-squad.git` (local bare remote, per workspace CLAUDE.md §5).
+- **`local`** — `/Users/rupeshsilwal/Work_Claude_Safe/git-repos/rescue-squad.git` (local bare remote, per workspace CLAUDE.md §5).
 - **`github`** — [github.com/openrescue-org/rescue-squad](https://github.com/openrescue-org/rescue-squad) (public, live).
 
-Push to both after each commit. The `origin` bare remote was repaired on 2026-06-16 — repointed from the dead legacy path under `Claude-safe/git-repos/` to the current workspace `git-repos/`.
+Push to both after each commit. The bare remote was renamed `origin` → `local` on 2026-06-16 (matching the `local` convention used across subprojects); it had earlier been repointed from the dead legacy path under `Claude-safe/git-repos/` to the current workspace `git-repos/`.

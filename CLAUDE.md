@@ -59,12 +59,12 @@ Plans live at `Rescue-Squad/.claude/plans/` (gitignored, per workspace CLAUDE.md
 
 ## Git remotes
 
-- **`origin`** — `/Users/rupeshsilwal/Work_Claude_Safe/git-repos/rescue-squad.git` (local bare remote).
+- **`local`** — `/Users/rupeshsilwal/Work_Claude_Safe/git-repos/rescue-squad.git` (local bare remote).
 - **`github`** — `https://github.com/openrescue-org/rescue-squad.git` (public, live).
 
 Standard workflow per workspace CLAUDE.md §5 (test before commit; commit per unit of work; push to **both** remotes after each commit; never force-push).
 
-The `origin` bare remote was repaired on 2026-06-16: repointed from the dead legacy path `/Users/rupeshsilwal/Claude-safe/git-repos/rescue-squad.git` (gone after the workspace relocation) to the canonical `/Users/rupeshsilwal/Work_Claude_Safe/git-repos/`. All three — local, `origin`, and `github` — are in sync.
+The bare remote was renamed `origin` → `local` on 2026-06-16 (matching the `local` naming convention now used across subprojects). It had earlier been repaired the same day: repointed from the dead legacy path `/Users/rupeshsilwal/Claude-safe/git-repos/rescue-squad.git` (gone after the workspace relocation) to the canonical `/Users/rupeshsilwal/Work_Claude_Safe/git-repos/`. Both `local` and `github` are in sync.
 
 ## Commands
 

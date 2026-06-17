@@ -2,6 +2,16 @@
 
 All notable changes to Rescue-Squad. Format: most recent at top.
 
+## 2026-06-16 — Bare remote renamed `origin` → `local`
+
+- **`git remote rename origin local`:** the local bare remote is now named
+  `local` (was `origin`), matching the naming convention now used across all
+  subprojects (UTI-scripts, Delirium, ED-Management-Platform). URL unchanged:
+  `/Users/rupeshsilwal/Work_Claude_Safe/git-repos/rescue-squad.git`. Branch
+  tracking was updated automatically by the rename. `github` remote unchanged.
+- **Docs synced (`README.md`, `CLAUDE.md`):** all `origin` references updated to
+  `local`.
+
 ## 2026-06-16 — Origin repointed to shared git-repos; remote docs synced
 
 - **`origin` set to the canonical shared bare-repo location:** `/Users/rupeshsilwal/Work_Claude_Safe/git-repos/rescue-squad.git` — the workspace-group `git-repos/` that holds every subproject's bare remote (aws, games, lean-proofs, taxes-2025, …). This supersedes the `Work_Claude_Safe/Exploratory/git-repos/...` path noted in the prior entry; the bares are shared at the `Work_Claude_Safe/` root, not per-workspace. Local, `origin`, and `github` are all in sync.
